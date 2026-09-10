@@ -1827,3 +1827,328 @@ textarea {
   }
 
 }
+/* ========================================
+   CONTACT / VISIT US PAGE
+======================================== */
+
+
+/* HERO */
+
+.contact-hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.94) 0%,
+      rgba(0,0,0,.72) 43%,
+      rgba(0,0,0,.18) 75%
+    ),
+    url("https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1800&q=85")
+    center 45% / cover no-repeat;
+}
+
+.contact-hero-content {
+  max-width: 700px;
+  padding: 100px 0;
+}
+
+.contact-hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(55px, 7vw, 90px);
+  line-height: .98;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.contact-hero-content > p:not(.eyebrow) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  max-width: 590px;
+  margin-bottom: 35px;
+}
+
+
+/* CONTACT INFORMATION */
+
+.contact-section {
+  padding: 100px 0;
+  background: var(--cream);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 100px;
+}
+
+.contact-intro h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 5vw, 64px);
+  line-height: 1.03;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.contact-intro > p:not(.eyebrow) {
+  font-size: 17px;
+  max-width: 500px;
+  margin-bottom: 18px;
+}
+
+.contact-details {
+  border-top: 1px solid #b8afa5;
+}
+
+.contact-detail {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 20px;
+  padding: 30px 0;
+  border-bottom: 1px solid #b8afa5;
+}
+
+.contact-detail > span {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #9b8c7c;
+  font-size: 13px;
+}
+
+.contact-detail h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.contact-detail p {
+  color: var(--muted);
+}
+
+
+/* LOCATION */
+
+.location-feature {
+  background: var(--charcoal);
+  color: white;
+}
+
+.location-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.location-block {
+  align-self: center;
+  padding: 90px 70px 90px 0;
+}
+
+.location-block h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(45px, 5vw, 65px);
+  line-height: 1.03;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.location-block > p:not(.eyebrow) {
+  color: #d5d5d5;
+  font-size: 17px;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.location-visual {
+  min-height: 600px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(
+      rgba(0,0,0,.3),
+      rgba(0,0,0,.3)
+    ),
+    url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=85")
+    center / cover no-repeat;
+}
+
+.location-marker {
+  background: rgba(12,12,12,.92);
+  padding: 50px 55px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.3);
+}
+
+.location-jd {
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border: 1px solid white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 35px;
+}
+
+.location-marker p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  letter-spacing: 2px;
+}
+
+.location-marker span {
+  display: block;
+  margin-top: 8px;
+  color: #bbb;
+  font-size: 13px;
+}
+
+
+/* HELP CARDS */
+
+.contact-help {
+  padding: 90px 0;
+  background: #f8f5ef;
+}
+
+.contact-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 50px;
+}
+
+.contact-help-card {
+  background: white;
+  padding: 38px 30px;
+  min-height: 310px;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.contact-help-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.contact-help-card span {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #9b8c7c;
+  font-size: 14px;
+  margin-bottom: 45px;
+}
+
+.contact-help-card h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px;
+  line-height: 1.05;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.contact-help-card p {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.contact-help-card strong {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 950px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .location-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-block {
+    padding: 70px 0;
+  }
+
+  .location-visual {
+    min-height: 480px;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .contact-hero {
+    min-height: 620px;
+    align-items: flex-end;
+
+    background:
+      linear-gradient(
+        0deg,
+        rgba(0,0,0,.95) 0%,
+        rgba(0,0,0,.42) 52%,
+        rgba(0,0,0,.1) 100%
+      ),
+      url("https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=900&q=80")
+      center / cover no-repeat;
+  }
+
+  .contact-hero-content {
+    padding: 80px 0 50px;
+  }
+
+  .contact-hero h1 {
+    font-size: 49px;
+  }
+
+  .contact-hero-content > p:not(.eyebrow) {
+    font-size: 18px;
+  }
+
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-detail {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .location-block {
+    padding: 55px 0;
+  }
+
+  .location-visual {
+    min-height: 390px;
+  }
+
+  .location-marker {
+    padding: 35px 25px;
+    width: 86%;
+  }
+
+  .contact-help {
+    padding: 55px 0;
+  }
+
+  .contact-help-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-help-card {
+    min-height: auto;
+  }
+
+}
