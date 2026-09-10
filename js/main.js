@@ -1,3 +1,7 @@
+/* ========================================
+   MOBILE NAVIGATION
+======================================== */
+
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".main-nav");
 
@@ -34,9 +38,9 @@ if (menuButton && navigation) {
 
 
 
-/* --------------------------------
+/* ========================================
    WEDDING ENQUIRY FORM
--------------------------------- */
+======================================== */
 
 const weddingForm = document.getElementById("wedding-form");
 
@@ -117,9 +121,11 @@ if (weddingForm) {
 
 }
 
-/* --------------------------------
-   GIFT VOUCHERS
--------------------------------- */
+
+
+/* ========================================
+   GIFT VOUCHER SELECTION
+======================================== */
 
 const voucherButtons =
   document.querySelectorAll("[data-voucher-amount]");
@@ -132,10 +138,12 @@ voucherButtons.forEach((button) => {
     const amount =
       button.dataset.voucherAmount;
 
+
     localStorage.setItem(
       "jackDunneVoucherAmount",
       amount
     );
+
 
     window.location.href =
       "voucher-checkout.html";
@@ -145,6 +153,10 @@ voucherButtons.forEach((button) => {
 });
 
 
+
+/* ========================================
+   GIFT VOUCHER CHECKOUT
+======================================== */
 
 const voucherAmountInput =
   document.getElementById("voucher-amount");
@@ -187,8 +199,15 @@ if (
     const value =
       voucherAmountInput.value || 0;
 
+
     voucherDisplayAmount.textContent =
       `€${value}`;
+
+
+    localStorage.setItem(
+      "jackDunneVoucherAmount",
+      value
+    );
 
   }
 
@@ -202,3 +221,62 @@ if (
   updateVoucherAmount();
 
 }
+
+
+
+/* ========================================
+   VOUCHER DETAILS FORM
+   STRIPE PLACEHOLDER
+======================================== */
+
+const voucherDetailsForm =
+  document.getElementById("voucher-details-form");
+
+
+if (voucherDetailsForm) {
+
+  voucherDetailsForm.addEventListener(
+    "submit",
+    (event) => {
+
+      event.preventDefault();
+
+
+      /*
+        Stripe Checkout will be connected here.
+
+        For now, the payment button is disabled
+        in voucher-checkout.html so customers
+        cannot accidentally submit or believe
+        they have purchased a voucher.
+      */
+
+    }
+  );
+
+}
+
+
+
+/* ========================================
+   CLOSE MOBILE MENU ON RESIZE
+======================================== */
+
+window.addEventListener("resize", () => {
+
+  if (
+    window.innerWidth > 950 &&
+    navigation &&
+    menuButton
+  ) {
+
+    navigation.classList.remove("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  }
+
+});
