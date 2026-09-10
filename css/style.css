@@ -1,23 +1,33 @@
+/* ========================================
+   JACK DUNNE MENSWEAR
+   MASTER STYLESHEET
+======================================== */
+
+
+/* ========================================
+   VARIABLES
+======================================== */
+
 :root {
-  --black: #0c0c0c;
-  --charcoal: #171717;
-  --cream: #f3eee5;
+  --black: #111111;
+  --charcoal: #1b1b1b;
+  --cream: #f4efe8;
   --white: #ffffff;
-  --stone: #d8cdbf;
+  --stone: #d7cec4;
   --text: #242424;
-  --muted: #6f6a64;
-  --max-width: 1240px;
+  --muted: #74706b;
+  --max-width: 1280px;
 }
 
 
 /* ========================================
-   RESET / GLOBAL
+   RESET
 ======================================== */
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -29,11 +39,12 @@ body {
   background: var(--cream);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img {
-  width: 100%;
   display: block;
+  width: 100%;
 }
 
 a {
@@ -43,8 +54,13 @@ a {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {
@@ -54,156 +70,228 @@ textarea {
 
 
 /* ========================================
-   HEADER / NAVIGATION
+   TYPOGRAPHY
 ======================================== */
 
-.site-header {
-  background: var(--black);
-  color: var(--white);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-inner {
-  min-height: 86px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
-}
-
-.brand-mark {
-  width: 58px;
-  height: 58px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  display: grid;
-  place-items: center;
+h1,
+h2,
+h3,
+.display-heading {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 28px;
-  letter-spacing: -5px;
-}
-
-.brand-text strong {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 20px;
-  letter-spacing: 3px;
   font-weight: 400;
-  white-space: nowrap;
+  line-height: 1.05;
 }
 
-.brand-text small {
+h1 {
+  font-size: clamp(3.2rem, 7vw, 7rem);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
   display: block;
-  margin-top: 3px;
-  font-size: 9px;
-  letter-spacing: 3px;
+  margin-bottom: 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  opacity: 0.75;
-  white-space: nowrap;
 }
 
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 13px;
+.section-label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
-.main-nav a {
-  opacity: 0.88;
-  transition: opacity 0.2s ease;
-  white-space: nowrap;
+.large-copy {
+  max-width: 760px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  line-height: 1.35;
 }
 
-.main-nav a:hover {
-  opacity: 1;
-}
-
-.nav-button {
-  background: var(--cream);
-  color: var(--black);
-  padding: 10px 14px;
-  opacity: 1 !important;
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: 0;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+.muted {
+  color: var(--muted);
 }
 
 
 /* ========================================
-   SHARED TYPOGRAPHY / BUTTONS
+   BUTTONS
 ======================================== */
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 12px;
-  margin-bottom: 20px;
-}
-
-.dark-eyebrow {
-  color: #877665;
-}
-
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
 .btn {
-  display: inline-block;
-  padding: 15px 22px;
-  border: 1px solid white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 25px;
+  border: 1px solid transparent;
+  font-size: 0.8rem;
   font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    opacity 0.2s ease;
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-dark:hover {
+  background: #333333;
 }
 
 .btn-light {
   background: var(--cream);
   color: var(--black);
-  border-color: var(--cream);
 }
 
-.btn-dark {
-  background: var(--black);
-  color: white;
+.btn-light:hover {
+  background: var(--white);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--white);
+}
+
+.btn-outline-light:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.btn-outline-dark {
   border-color: var(--black);
+  color: var(--black);
 }
 
-.btn:hover {
-  opacity: 0.9;
+.btn-outline-dark:hover {
+  background: var(--black);
+  color: var(--white);
 }
 
-.text-link {
-  display: inline-block;
-  margin-top: 18px;
-  border-bottom: 1px solid currentColor;
+
+/* ========================================
+   HEADER
+======================================== */
+
+.site-header {
+  position: relative;
+  z-index: 1000;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: var(--black);
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-text strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.brand-text small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.main-nav > a {
+  position: relative;
+  font-size: 0.72rem;
   font-weight: 700;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.main-nav > a:not(.nav-button)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--black);
+  transition: width 0.25s ease;
+}
+
+.main-nav > a:not(.nav-button):hover::after {
+  width: 100%;
+}
+
+.nav-button {
+  padding: 12px 17px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--black);
+  font-size: 1.7rem;
 }
 
 
@@ -212,157 +300,71 @@ textarea {
 ======================================== */
 
 .hero {
-  min-height: 680px;
-  position: relative;
+  min-height: calc(100vh - 90px);
   display: flex;
-  align-items: center;
-  color: white;
+  align-items: flex-end;
+  position: relative;
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.92) 0%,
-      rgba(0, 0, 0, 0.7) 38%,
-      rgba(0, 0, 0, 0.15) 70%
+      rgba(0, 0, 0, 0.76) 0%,
+      rgba(0, 0, 0, 0.46) 48%,
+      rgba(0, 0, 0, 0.15) 100%
     ),
-    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1800&q=85")
-      center 25% / cover no-repeat;
+    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
+  color: var(--white);
 }
 
 .hero-content {
-  max-width: 690px;
-  padding: 95px 0;
+  max-width: 800px;
+  padding: 110px 0 100px;
 }
 
 .hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(54px, 7vw, 92px);
-  line-height: 0.98;
-  font-weight: 400;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
 .hero-copy {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
-  max-width: 610px;
+  max-width: 620px;
   margin-bottom: 35px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.88);
 }
 
-
-/* ========================================
-   HOME SERVICES
-======================================== */
-
-.services {
-  padding: 22px 0 70px;
-  background: var(--cream);
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.service-card {
-  background: white;
-  overflow: hidden;
-}
-
-.service-card img {
-  height: 260px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.service-card:hover img {
-  transform: scale(1.025);
-}
-
-.card-content {
-  padding: 25px;
-}
-
-.card-content h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 27px;
-  line-height: 1.1;
-  font-weight: 400;
-  margin-bottom: 12px;
-}
-
-.card-content p {
-  color: var(--muted);
-  min-height: 54px;
-}
-
-
-/* ========================================
-   BRANDS
-======================================== */
-
-.brands {
-  background: white;
-  border-top: 1px solid #e4dfd7;
-  border-bottom: 1px solid #e4dfd7;
-  padding: 35px 0;
-}
-
-.brands-large {
-  padding: 75px 0;
-}
-
-.brand-list {
+.hero-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
   flex-wrap: wrap;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #333;
-  font-weight: 700;
-  font-size: 13px;
+  gap: 14px;
 }
 
 
 /* ========================================
-   STORY / GENERIC SPLIT
+   SHARED PAGE HERO
 ======================================== */
 
-.story {
-  padding: 90px 0;
-  background: #f8f5ef;
+.page-hero {
+  min-height: 72vh;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  color: var(--white);
 }
 
-.story-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  align-items: center;
-  gap: 70px;
+.page-hero-content {
+  width: 100%;
+  padding: 120px 0 80px;
 }
 
-.story-image img {
-  height: 520px;
-  object-fit: cover;
+.page-hero h1 {
+  max-width: 900px;
+  margin-bottom: 22px;
 }
 
-.story-copy .eyebrow {
-  color: #887867;
-}
-
-.story-copy h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(40px, 5vw, 62px);
-  line-height: 1.05;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.story-copy p {
-  font-size: 17px;
-  max-width: 600px;
-  margin-bottom: 25px;
+.page-hero p {
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.05rem;
 }
 
 
@@ -371,58 +373,173 @@ textarea {
 ======================================== */
 
 .intro-section {
-  background: var(--cream);
-  padding: 90px 0;
+  padding: 110px 0;
 }
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: 80px;
   align-items: start;
 }
 
 .intro-grid h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(40px, 5vw, 62px);
-  line-height: 1.05;
-  font-weight: 400;
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
 }
 
 .intro-copy {
-  padding-top: 30px;
+  max-width: 700px;
 }
 
 .intro-copy p {
-  font-size: 18px;
-  margin-bottom: 20px;
-  max-width: 560px;
-}
-
-.intro-copy .btn {
-  margin-top: 10px;
+  font-size: 1.05rem;
+  color: #4e4b47;
 }
 
 
 /* ========================================
-   SECTION HEADINGS
+   HOME SERVICES
 ======================================== */
 
-.section-heading-centre {
-  text-align: center;
-  margin-bottom: 45px;
+.services-section {
+  padding: 110px 0;
+  background: var(--white);
 }
 
-.section-heading-centre h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: clamp(40px, 5vw, 58px);
-  line-height: 1.05;
-  margin-bottom: 10px;
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 55px;
 }
 
-.section-heading-centre > p:last-child {
+.section-heading h2 {
+  max-width: 700px;
+}
+
+.section-heading p {
+  max-width: 430px;
   color: var(--muted);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--stone);
+  border-left: 1px solid var(--stone);
+}
+
+.service-card {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 35px;
+  border-right: 1px solid var(--stone);
+  border-bottom: 1px solid var(--stone);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.service-card:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.service-number {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+.service-card h3 {
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  color: var(--muted);
+}
+
+.service-card:hover p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.card-link {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   BRANDS
+======================================== */
+
+.brands-section {
+  padding: 90px 0;
+  background: var(--black);
+  color: var(--white);
+}
+
+.brands-header {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.brands-header p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.brands-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px 55px;
+}
+
+.brands-list span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+
+/* ========================================
+   HOME STORY
+======================================== */
+
+.story-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 680px;
+}
+
+.story-image {
+  background:
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=85")
+    center / cover no-repeat;
+}
+
+.story-content {
+  display: flex;
+  align-items: center;
+  background: var(--cream);
+}
+
+.story-content-inner {
+  max-width: 650px;
+  padding: 90px;
+}
+
+.story-content h2 {
+  margin-bottom: 30px;
+}
+
+.story-content p {
+  color: #55514d;
 }
 
 
@@ -431,155 +548,81 @@ textarea {
 ======================================== */
 
 .menswear-hero {
-  min-height: 620px;
-  display: flex;
-  align-items: center;
-  color: white;
   background:
     linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.65) 42%,
-      rgba(0, 0, 0, 0.12) 75%
+      rgba(0, 0, 0, 0.32),
+      rgba(0, 0, 0, 0.48)
     ),
-    url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1800&q=85")
-      center 30% / cover no-repeat;
-}
-
-.menswear-hero-content {
-  max-width: 670px;
-  padding: 100px 0;
-}
-
-.menswear-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(55px, 7vw, 90px);
-  font-weight: 400;
-  line-height: 0.98;
-  margin-bottom: 25px;
-}
-
-.menswear-hero-content > p:not(.eyebrow) {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
-  max-width: 560px;
-  margin-bottom: 35px;
+    url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
 }
 
 .collection-section {
-  padding: 0 0 90px;
-  background: var(--cream);
+  padding: 110px 0;
+  background: var(--white);
 }
 
 .collection-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 1px;
+  background: var(--stone);
+  border: 1px solid var(--stone);
 }
 
 .collection-card {
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-  background: #111;
+  min-height: 320px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--cream);
 }
 
-.collection-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.collection-card h3 {
+  margin-bottom: 10px;
 }
 
-.collection-card:hover img {
-  transform: scale(1.035);
-}
-
-.collection-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.88) 0%,
-    rgba(0, 0, 0, 0.15) 58%,
-    rgba(0, 0, 0, 0.05) 100%
-  );
-}
-
-.collection-overlay {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 28px;
-  z-index: 2;
-  color: white;
-}
-
-.collection-overlay p {
-  font-size: 11px;
-  letter-spacing: 3px;
-  opacity: 0.7;
-  margin-bottom: 7px;
-}
-
-.collection-overlay h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 31px;
-  line-height: 1.1;
-  margin-bottom: 8px;
-}
-
-.collection-overlay span {
-  font-size: 14px;
-  color: #ddd;
+.collection-card p {
+  color: var(--muted);
 }
 
 
 /* ========================================
-   GENERIC FEATURE
+   GENERIC FEATURE SECTION
 ======================================== */
 
-.service-feature {
-  background: var(--charcoal);
-  color: white;
-}
-
-.service-feature-grid {
+.feature-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 600px;
+  min-height: 650px;
 }
 
-.service-feature-copy {
-  padding: 90px 70px 90px 0;
-  align-self: center;
+.feature-image {
+  min-height: 650px;
+  background:
+    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=85")
+    center / cover no-repeat;
 }
 
-.service-feature-copy h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 5vw, 64px);
-  font-weight: 400;
-  line-height: 1.05;
-  margin-bottom: 25px;
+.feature-content {
+  display: flex;
+  align-items: center;
+  background: var(--black);
+  color: var(--white);
 }
 
-.service-feature-copy > p:not(.eyebrow) {
-  color: #d5d5d5;
-  font-size: 17px;
-  max-width: 520px;
-  margin-bottom: 18px;
+.feature-content-inner {
+  max-width: 650px;
+  padding: 90px;
 }
 
-.service-feature-copy .btn {
-  margin-top: 18px;
+.feature-content h2 {
+  margin-bottom: 30px;
 }
 
-.service-feature-image img {
-  height: 100%;
-  min-height: 600px;
-  object-fit: cover;
+.feature-content p {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 
@@ -588,71 +631,43 @@ textarea {
 ======================================== */
 
 .wedding-hero {
-  min-height: 690px;
-  display: flex;
-  align-items: center;
-  color: white;
   background:
     linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.93) 0%,
-      rgba(0, 0, 0, 0.65) 42%,
-      rgba(0, 0, 0, 0.08) 78%
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.52)
     ),
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=85")
-      center 38% / cover no-repeat;
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
 }
 
-.wedding-hero-content {
-  max-width: 720px;
-  padding: 105px 0;
+.wedding-services {
+  padding: 110px 0;
+  background: var(--white);
 }
 
-.wedding-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(56px, 7vw, 92px);
-  line-height: 0.98;
-  font-weight: 400;
-  margin-bottom: 26px;
-}
-
-.wedding-hero-content > p:not(.eyebrow) {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
-  max-width: 620px;
-  margin-bottom: 38px;
-}
-
-.wedding-feature-grid {
-  padding: 0 0 90px;
-  background: var(--cream);
-}
-
-.wedding-cards {
+.wedding-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 1px;
+  background: var(--stone);
+  border: 1px solid var(--stone);
 }
 
 .wedding-card {
-  background: white;
-  padding: 38px 30px;
-  min-height: 290px;
+  min-height: 300px;
+  padding: 35px;
+  background: var(--cream);
 }
 
-.wedding-number {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 15px;
-  color: #9b8c7c;
-  margin-bottom: 35px;
+.wedding-card span {
+  display: block;
+  margin-bottom: 80px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
 }
 
-.wedding-card h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
-  line-height: 1.05;
-  font-weight: 400;
-  margin-bottom: 18px;
+.wedding-card h3 {
+  margin-bottom: 14px;
 }
 
 .wedding-card p {
@@ -660,119 +675,73 @@ textarea {
 }
 
 .wedding-editorial {
-  background: var(--charcoal);
-  color: white;
-}
-
-.wedding-editorial-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 650px;
+  grid-template-columns: 1.1fr 0.9fr;
+  min-height: 700px;
 }
 
-.wedding-editorial-image img {
-  width: 100%;
-  height: 100%;
-  min-height: 650px;
-  object-fit: cover;
+.wedding-editorial-image {
+  background:
+    url("https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=85")
+    center / cover no-repeat;
 }
 
-.wedding-editorial-copy {
-  padding: 95px 0 95px 75px;
-  align-self: center;
+.wedding-editorial-content {
+  display: flex;
+  align-items: center;
+  background: var(--black);
+  color: var(--white);
 }
 
-.wedding-editorial-copy h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(45px, 5vw, 66px);
-  line-height: 1.03;
-  font-weight: 400;
-  margin-bottom: 25px;
+.wedding-editorial-inner {
+  padding: 90px;
 }
 
-.wedding-editorial-copy > p:not(.eyebrow) {
-  color: #d7d7d7;
-  font-size: 17px;
-  max-width: 520px;
-  margin-bottom: 18px;
+.wedding-editorial-inner h2 {
+  margin-bottom: 28px;
 }
 
-.wedding-editorial-copy .btn {
-  margin-top: 18px;
+.wedding-editorial-inner p {
+  color: rgba(255, 255, 255, 0.72);
 }
 
-.wedding-steps {
-  background: #f8f5ef;
-  padding: 90px 0;
+.steps-section {
+  padding: 110px 0;
 }
 
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  margin-top: 55px;
+  border-top: 1px solid var(--stone);
 }
 
-.step-card {
-  border-top: 1px solid #aaa097;
-  padding-top: 25px;
+.step {
+  padding: 35px 30px 20px 0;
+  border-right: 1px solid var(--stone);
 }
 
-.step-card span {
+.step:not(:first-child) {
+  padding-left: 30px;
+}
+
+.step:last-child {
+  border-right: 0;
+}
+
+.step-number {
   display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #8f8172;
-  font-size: 14px;
-  margin-bottom: 35px;
+  margin-bottom: 45px;
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 
-.step-card h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
-  font-weight: 400;
+.step h3 {
   margin-bottom: 12px;
 }
 
-.step-card p {
+.step p {
   color: var(--muted);
-}
-
-.wedding-enquiry {
-  padding: 95px 0;
-  background: var(--cream);
-}
-
-.wedding-enquiry-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 90px;
-  align-items: start;
-}
-
-.wedding-enquiry-copy h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(50px, 6vw, 75px);
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 25px;
-}
-
-.wedding-enquiry-copy > p:not(.eyebrow) {
-  font-size: 17px;
-  max-width: 470px;
-  margin-bottom: 20px;
-}
-
-.enquiry-note {
-  color: #7a7068;
-  font-size: 13px !important;
-  border-left: 2px solid #b9ac9f;
-  padding-left: 15px;
-  margin-top: 30px;
-}
-
-.wedding-form {
-  background: white;
-  padding: 45px;
 }
 
 
@@ -780,10 +749,29 @@ textarea {
    FORMS
 ======================================== */
 
-.form-grid {
+.enquiry-section {
+  padding: 110px 0;
+  background: var(--white);
+}
+
+.enquiry-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 90px;
+}
+
+.enquiry-intro h2 {
+  margin-bottom: 25px;
+}
+
+.enquiry-intro p {
+  color: var(--muted);
+}
+
+.enquiry-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
 }
 
 .form-group {
@@ -791,40 +779,45 @@ textarea {
   flex-direction: column;
 }
 
-.full-width {
+.form-group.full {
   grid-column: 1 / -1;
 }
 
 .form-group label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
-  background: #f8f6f1;
-  border: 1px solid #ded8d0;
-  padding: 15px;
+  border: 0;
+  border-bottom: 1px solid #a8a19a;
+  border-radius: 0;
+  background: transparent;
+  padding: 12px 0;
   color: var(--text);
+  outline: none;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
-  outline: 1px solid #777;
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--black);
 }
 
 .form-group textarea {
+  min-height: 130px;
   resize: vertical;
 }
 
 .form-button {
-  border: 0;
-  cursor: pointer;
-  width: 100%;
+  margin-top: 15px;
+  justify-self: start;
 }
 
 
@@ -833,332 +826,190 @@ textarea {
 ======================================== */
 
 .occasion-hero {
-  min-height: 650px;
-  display: flex;
-  align-items: center;
-  color: white;
   background:
     linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.92) 0%,
-      rgba(0, 0, 0, 0.65) 42%,
-      rgba(0, 0, 0, 0.12) 76%
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.52)
     ),
-    url("https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1800&q=85")
-      center 35% / cover no-repeat;
+    url("https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
 }
 
-.occasion-hero-content {
-  max-width: 700px;
-  padding: 100px 0;
+.occasions-section {
+  padding: 110px 0;
+  background: var(--white);
 }
 
-.occasion-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(55px, 7vw, 90px);
-  line-height: 0.98;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.occasion-hero-content > p:not(.eyebrow) {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
-  max-width: 590px;
-  margin-bottom: 35px;
-}
-
-.occasion-section {
-  background: var(--cream);
-  padding: 0 0 90px;
-}
-
-.occasion-grid {
+.occasions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  border-top: 1px solid var(--stone);
+  border-left: 1px solid var(--stone);
 }
 
 .occasion-card {
-  background: white;
-  overflow: hidden;
+  min-height: 300px;
+  padding: 35px;
+  border-right: 1px solid var(--stone);
+  border-bottom: 1px solid var(--stone);
 }
 
-.occasion-card img {
-  height: 390px;
-  object-fit: cover;
-  transition: transform 0.45s ease;
+.occasion-card span {
+  display: block;
+  margin-bottom: 80px;
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 
-.occasion-card:hover img {
-  transform: scale(1.03);
-}
-
-.occasion-card-content {
-  padding: 28px;
-}
-
-.occasion-number {
-  color: #9b8c7c;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  margin-bottom: 13px;
-}
-
-.occasion-card h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 31px;
-  line-height: 1.05;
+.occasion-card h3 {
   margin-bottom: 14px;
 }
 
-.occasion-card-content > p:last-child {
+.occasion-card p {
   color: var(--muted);
 }
 
 
 /* ========================================
-   ABOUT
+   ABOUT / OUR STORY
 ======================================== */
 
 .story-hero {
-  min-height: 650px;
-  display: flex;
-  align-items: center;
-  color: white;
   background:
     linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.94) 0%,
-      rgba(0, 0, 0, 0.7) 43%,
-      rgba(0, 0, 0, 0.15) 76%
+      rgba(0, 0, 0, 0.32),
+      rgba(0, 0, 0, 0.5)
     ),
-    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85")
-      center 45% / cover no-repeat;
-}
-
-.story-hero-content {
-  max-width: 700px;
-  padding: 100px 0;
-}
-
-.story-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(55px, 7vw, 90px);
-  line-height: 0.98;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.story-hero-content > p:not(.eyebrow) {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
-  max-width: 590px;
-  margin-bottom: 35px;
-}
-
-.about-editorial {
-  background: var(--charcoal);
-  color: white;
-}
-
-.about-editorial-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 650px;
-}
-
-.about-editorial-image img {
-  width: 100%;
-  height: 100%;
-  min-height: 650px;
-  object-fit: cover;
-}
-
-.about-editorial-copy {
-  padding: 95px 0 95px 75px;
-  align-self: center;
-}
-
-.about-editorial-copy h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(44px, 5vw, 65px);
-  line-height: 1.03;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.about-editorial-copy > p:not(.eyebrow) {
-  color: #d7d7d7;
-  font-size: 17px;
-  max-width: 520px;
-  margin-bottom: 18px;
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
 }
 
 .heritage-section {
-  background: #f8f5ef;
-  padding: 100px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 700px;
 }
 
-.heritage-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 90px;
+.heritage-image {
+  background:
+    url("https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1400&q=85")
+    center / cover no-repeat;
+}
+
+.heritage-content {
+  display: flex;
   align-items: center;
+  background: var(--black);
+  color: var(--white);
+}
+
+.heritage-inner {
+  padding: 90px;
 }
 
 .heritage-year {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(100px, 15vw, 190px);
-  line-height: 0.8;
-  color: #d1c4b5;
-  letter-spacing: -8px;
-}
-
-.heritage-copy h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 5vw, 60px);
-  line-height: 1.05;
-  font-weight: 400;
+  display: block;
   margin-bottom: 25px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 1;
 }
 
-.heritage-copy > p:not(.eyebrow) {
-  font-size: 17px;
-  max-width: 560px;
-  margin-bottom: 18px;
+.heritage-inner p {
+  color: rgba(255, 255, 255, 0.72);
 }
 
-.about-values {
-  background: white;
-  padding: 90px 0;
+.values-section {
+  padding: 110px 0;
 }
 
-.about-values-grid {
+.values-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-top: 50px;
+  margin-top: 55px;
+  border-top: 1px solid var(--stone);
 }
 
-.about-value {
-  border-top: 1px solid #aaa097;
-  padding: 28px 15px 20px 0;
+.value-card {
+  padding: 35px 30px 20px 0;
+  border-right: 1px solid var(--stone);
 }
 
-.about-value span {
+.value-card:not(:first-child) {
+  padding-left: 30px;
+}
+
+.value-card:last-child {
+  border-right: 0;
+}
+
+.value-card span {
   display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #9b8c7c;
-  font-size: 14px;
-  margin-bottom: 35px;
+  margin-bottom: 45px;
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 
-.about-value h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
-  font-weight: 400;
+.value-card h3 {
   margin-bottom: 12px;
 }
 
-.about-value p {
+.value-card p {
   color: var(--muted);
 }
 
 
 /* ========================================
-   CONTACT / VISIT
+   CONTACT
 ======================================== */
 
 .contact-hero {
-  min-height: 650px;
-  display: flex;
-  align-items: center;
-  color: white;
   background:
     linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.94) 0%,
-      rgba(0, 0, 0, 0.72) 43%,
-      rgba(0, 0, 0, 0.18) 75%
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.55)
     ),
-    url("https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1800&q=85")
-      center 45% / cover no-repeat;
-}
-
-.contact-hero-content {
-  max-width: 700px;
-  padding: 100px 0;
-}
-
-.contact-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(55px, 7vw, 90px);
-  line-height: 0.98;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.contact-hero-content > p:not(.eyebrow) {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
-  max-width: 590px;
-  margin-bottom: 35px;
+    url("https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
 }
 
 .contact-section {
-  padding: 100px 0;
-  background: var(--cream);
+  padding: 110px 0;
 }
 
-.contact-grid {
+.contact-layout {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 100px;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
 }
 
-.contact-intro h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(44px, 5vw, 64px);
-  line-height: 1.03;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.contact-intro > p:not(.eyebrow) {
-  font-size: 17px;
-  max-width: 500px;
-  margin-bottom: 18px;
-}
-
-.contact-details {
-  border-top: 1px solid #b8afa5;
+.contact-details h2 {
+  margin-bottom: 40px;
 }
 
 .contact-detail {
   display: grid;
-  grid-template-columns: 55px 1fr;
+  grid-template-columns: 45px 1fr;
   gap: 20px;
-  padding: 30px 0;
-  border-bottom: 1px solid #b8afa5;
+  padding: 28px 0;
+  border-top: 1px solid var(--stone);
+}
+
+.contact-detail:last-child {
+  border-bottom: 1px solid var(--stone);
 }
 
 .contact-detail > span {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #9b8c7c;
-  font-size: 13px;
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 
 .contact-detail h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 28px;
-  font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 .contact-detail p {
+  margin: 0;
   color: var(--muted);
 }
 
@@ -1195,79 +1046,62 @@ textarea {
 
 
 /* ========================================
-   LOCATION FEATURE
+   CONTACT LOCATION
 ======================================== */
 
-.location-feature {
-  background: var(--charcoal);
-  color: white;
-}
-
-.location-feature-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 600px;
-}
-
-.location-block {
-  align-self: center;
-  padding: 90px 70px 90px 0;
-}
-
-.location-block h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(45px, 5vw, 65px);
-  line-height: 1.03;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.location-block > p:not(.eyebrow) {
-  color: #d5d5d5;
-  font-size: 17px;
-  max-width: 500px;
-  margin-bottom: 30px;
-}
-
 .location-visual {
-  min-height: 600px;
-  display: grid;
-  place-items: center;
+  min-height: 620px;
+  position: relative;
+
+  /*
+    Real Gorey street image.
+    File location:
+    images/jackdunnestreet.jpg
+  */
+
   background:
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=85")
-      center / cover no-repeat;
+    linear-gradient(
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.18)
+    ),
+    url("../images/jackdunnestreet.jpg")
+    center / cover no-repeat;
 }
 
-.location-marker {
-  background: rgba(12, 12, 12, 0.92);
-  padding: 50px 55px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.location-card {
+  position: absolute;
+  left: 35px;
+  bottom: 35px;
+  width: min(360px, calc(100% - 70px));
+  padding: 35px;
+  background: var(--black);
+  color: var(--white);
 }
 
-.location-jd {
-  width: 80px;
-  height: 80px;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 22px;
-  border: 1px solid white;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 35px;
+.location-card .brand-mark {
+  margin-bottom: 25px;
+  background: var(--cream);
+  color: var(--black);
 }
 
-.location-marker p {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
-  letter-spacing: 2px;
+.location-card h3 {
+  margin-bottom: 14px;
+  font-size: 2rem;
 }
 
-.location-marker span {
-  display: block;
-  margin-top: 8px;
-  color: #bbb;
-  font-size: 13px;
+.location-card p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.location-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 
@@ -1276,56 +1110,38 @@ textarea {
 ======================================== */
 
 .contact-help {
-  padding: 90px 0;
-  background: #f8f5ef;
+  padding: 100px 0;
+  background: var(--white);
 }
 
 .contact-help-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 50px;
+  border-top: 1px solid var(--stone);
+  border-left: 1px solid var(--stone);
 }
 
 .contact-help-card {
-  background: white;
-  padding: 38px 30px;
-  min-height: 310px;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.contact-help-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
-
-.contact-help-card span {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #9b8c7c;
-  font-size: 14px;
-  margin-bottom: 45px;
+  padding: 40px;
+  border-right: 1px solid var(--stone);
+  border-bottom: 1px solid var(--stone);
 }
 
 .contact-help-card h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 31px;
-  line-height: 1.05;
-  font-weight: 400;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .contact-help-card p {
   color: var(--muted);
-  margin-bottom: 25px;
 }
 
-.contact-help-card strong {
-  font-size: 12px;
+.contact-help-card a {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.7px;
 }
 
 
@@ -1334,28 +1150,25 @@ textarea {
 ======================================== */
 
 .visit-strip {
+  padding: 90px 0;
   background: var(--black);
-  color: white;
-  padding: 70px 0;
+  color: var(--white);
 }
 
-.visit-inner {
+.visit-strip-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 50px;
 }
 
-.visit-inner h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(38px, 5vw, 58px);
-  font-weight: 400;
-  line-height: 1.05;
+.visit-strip h2 {
+  max-width: 700px;
 }
 
-.visit-inner p {
-  margin-top: 10px;
-  color: #d5d5d5;
+.visit-strip p {
+  max-width: 450px;
+  color: rgba(255, 255, 255, 0.68);
 }
 
 
@@ -1364,210 +1177,133 @@ textarea {
 ======================================== */
 
 .voucher-hero {
-  min-height: 690px;
+  min-height: 72vh;
   display: flex;
-  align-items: center;
-  color: white;
+  align-items: flex-end;
+  position: relative;
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.94) 0%,
-      rgba(0, 0, 0, 0.72) 45%,
-      rgba(0, 0, 0, 0.18) 78%
+      rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.28)
     ),
-    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1800&q=85")
-      center / cover no-repeat;
+    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
+  color: var(--white);
 }
 
 .voucher-hero-content {
-  max-width: 720px;
-  padding: 100px 0;
+  padding: 120px 0 90px;
+  max-width: 800px;
 }
 
 .voucher-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(55px, 7vw, 92px);
-  line-height: 0.98;
-  font-weight: 400;
   margin-bottom: 25px;
 }
 
-.voucher-hero-content > p:not(.eyebrow) {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
-  max-width: 590px;
-  margin-bottom: 35px;
+.voucher-hero p {
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.voucher-section {
+  padding: 110px 0;
+  background: var(--white);
+}
+
+.voucher-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.voucher-intro h2 {
+  margin-bottom: 25px;
+}
+
+.voucher-intro p {
+  color: var(--muted);
 }
 
 .voucher-values {
-  background: #f8f5ef;
-  padding: 90px 0;
-}
-
-.voucher-value-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.voucher-value-card {
-  appearance: none;
-  border: 1px solid #d7cec4;
-  background: white;
-  padding: 50px 30px;
-  min-height: 260px;
-  cursor: pointer;
-  text-align: left;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease;
-}
-
-.voucher-value-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  background: #111;
-  color: white;
-}
-
-.voucher-value-card span {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 11px;
-  margin-bottom: 35px;
-}
-
-.voucher-value-card strong {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 65px;
-  line-height: 1;
-  font-weight: 400;
-}
-
-.voucher-value-card small {
-  display: block;
+  gap: 12px;
   margin-top: 35px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
 }
 
-.voucher-editorial {
-  background: #111;
-  color: white;
-}
-
-.voucher-editorial-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 80px;
-  align-items: center;
-  min-height: 650px;
-}
-
-.voucher-editorial-copy {
-  padding: 90px 0;
-}
-
-.voucher-editorial-copy h2 {
+.voucher-value {
+  min-height: 80px;
+  border: 1px solid var(--stone);
+  background: transparent;
+  color: var(--black);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(44px, 5vw, 65px);
-  line-height: 1.03;
-  font-weight: 400;
-  margin-bottom: 25px;
+  font-size: 1.4rem;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.voucher-editorial-copy > p:not(.eyebrow) {
-  color: #d7d7d7;
-  font-size: 17px;
-  max-width: 500px;
-  margin-bottom: 18px;
+.voucher-value:hover {
+  background: var(--black);
+  color: var(--white);
 }
 
-.voucher-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 70px 0;
+.voucher-preview {
+  padding: 60px;
+  background: var(--charcoal);
+  color: var(--white);
 }
 
 .voucher-preview-card {
-  width: 100%;
-  max-width: 610px;
   min-height: 360px;
-  border: 1px solid #d8c7a9;
-  background: linear-gradient(135deg, #090909, #1b1b1b);
-  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.35);
+  padding: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .voucher-preview-top {
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-.voucher-preview-logo {
-  width: 55px;
-  height: 55px;
-  display: grid;
-  place-items: center;
-  border: 1px solid white;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 25px;
-}
-
-.voucher-preview-top strong {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 3px;
-  font-weight: 400;
-}
-
-.voucher-preview-top small {
-  letter-spacing: 4px;
-  color: #aaa;
-}
-
-.voucher-preview-middle span {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 11px;
-}
-
-.voucher-preview-middle strong {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 80px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.voucher-preview-middle small {
-  letter-spacing: 3px;
-}
-
-.voucher-preview-bottom {
-  border-top: 1px solid #555;
-  padding-top: 20px;
-  display: flex;
   justify-content: space-between;
-  gap: 25px;
+  gap: 30px;
 }
 
-.voucher-preview-bottom span {
-  letter-spacing: 4px;
+.voucher-preview-top .brand-mark {
+  background: var(--cream);
+  color: var(--black);
 }
 
-.voucher-preview-bottom small {
-  color: #aaa;
+.voucher-preview-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.voucher-preview-amount {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1;
+}
+
+.voucher-preview-code {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.voucher-steps {
+  padding: 110px 0;
+}
+
+.voucher-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 55px;
+  border-top: 1px solid var(--stone);
 }
 
 
@@ -1575,74 +1311,50 @@ textarea {
    VOUCHER CHECKOUT
 ======================================== */
 
-.voucher-checkout-section {
+.checkout-section {
   padding: 100px 0;
-  background: var(--cream);
-  min-height: 750px;
+  background: var(--white);
 }
 
-.voucher-checkout-grid {
+.checkout-layout {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: 90px;
-  align-items: start;
 }
 
-.voucher-order-summary h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(48px, 6vw, 72px);
-  line-height: 1;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.voucher-order-summary > p:not(.eyebrow) {
-  font-size: 17px;
-  max-width: 480px;
-}
-
-.checkout-voucher-card {
-  background: #111;
-  color: white;
-  border: 1px solid #cdbb9e;
-  padding: 40px;
-  margin: 40px 0 15px;
-}
-
-.checkout-voucher-card span {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 11px;
-}
-
-.checkout-voucher-card strong {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 75px;
-  font-weight: 400;
-}
-
-.checkout-voucher-card small {
-  letter-spacing: 2px;
-  color: #aaa;
-}
-
-.voucher-details-box {
-  background: white;
+.checkout-summary {
+  position: sticky;
+  top: 120px;
+  align-self: start;
   padding: 45px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.checkout-summary h2 {
+  margin-bottom: 30px;
+}
+
+.checkout-amount {
+  margin: 25px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
+}
+
+.checkout-summary p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.voucher-checkout-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
 }
 
 .voucher-payment-button:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
-}
-
-.voucher-payment-note {
-  text-align: center;
-  margin-top: 15px;
-  color: var(--muted);
-  font-size: 13px;
+  transform: none;
 }
 
 
@@ -1651,109 +1363,40 @@ textarea {
 ======================================== */
 
 .thank-you-section {
-  min-height: 720px;
+  min-height: calc(100vh - 90px);
   display: flex;
   align-items: center;
-  text-align: center;
-  color: white;
-  padding: 100px 0;
+  position: relative;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0.87)),
-    url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1800&q=85")
-      center / cover no-repeat;
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78),
+      rgba(0, 0, 0, 0.38)
+    ),
+    url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
+  color: var(--white);
 }
 
 .thank-you-content {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.thank-you-mark {
-  width: 72px;
-  height: 72px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 35px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
+  max-width: 750px;
+  padding: 100px 0;
 }
 
 .thank-you-content h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(65px, 9vw, 105px);
-  font-weight: 400;
-  line-height: 0.95;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-.thank-you-lead {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 24px;
-  margin-bottom: 15px;
+.thank-you-content p {
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.thank-you-copy {
-  color: #d5d5d5;
-  font-size: 17px;
-  max-width: 570px;
-  margin: 0 auto 35px;
-}
-
-.thank-you-buttons {
-  justify-content: center;
-  margin-top: 35px;
-}
-
-.thank-you-home {
-  display: inline-block;
-  margin-top: 35px;
-  color: #d5d5d5;
-  font-size: 13px;
-  border-bottom: 1px solid #777;
-  padding-bottom: 3px;
-}
-
-.thank-you-home:hover {
-  color: white;
-}
-
-.voucher-success-section {
-  min-height: 720px;
+.thank-you-actions {
   display: flex;
-  align-items: center;
-  text-align: center;
-  color: white;
-  padding: 100px 0;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.89), rgba(0, 0, 0, 0.89)),
-    url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1800&q=85")
-      center / cover no-repeat;
-}
-
-.voucher-success-content {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.voucher-success-content h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(55px, 7vw, 90px);
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 30px;
-}
-
-.voucher-success-lead {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-.voucher-success-buttons {
-  justify-content: center;
-  margin-top: 40px;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 35px;
 }
 
 
@@ -1762,52 +1405,62 @@ textarea {
 ======================================== */
 
 .site-footer {
-  background: #050505;
-  color: white;
-  padding: 55px 0 25px;
+  padding: 80px 0 30px;
+  background: #0d0d0d;
+  color: var(--white);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 70px;
+  padding-bottom: 60px;
 }
 
 .footer-title {
+  margin-bottom: 20px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 23px;
-  letter-spacing: 3px;
-  margin-bottom: 14px;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
 }
 
 .footer-heading {
-  font-size: 12px;
+  margin-bottom: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
 }
 
-.footer-copy,
-.footer-links a {
-  color: #ccc;
-  font-size: 14px;
+.footer-copy {
+  max-width: 390px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-copy a:hover {
+  color: var(--white);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .footer-links a {
-  display: block;
-  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .footer-links a:hover {
-  color: white;
+  color: var(--white);
 }
 
 .footer-bottom {
-  border-top: 1px solid #333;
-  margin-top: 45px;
-  padding-top: 20px;
-  font-size: 12px;
-  color: #888;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.75rem;
 }
 
 
@@ -1821,30 +1474,44 @@ textarea {
 
 
 /* ========================================
-   RESPONSIVE:
-   LARGE TABLET / SMALL DESKTOP
+   RESPONSIVE — 1180PX
 ======================================== */
 
 @media (max-width: 1180px) {
 
   .main-nav {
-    gap: 12px;
-    font-size: 12px;
+    gap: 14px;
   }
 
-  .brand-text strong {
-    font-size: 16px;
+  .main-nav > a {
+    font-size: 0.66rem;
+  }
+
+  .brand-text small {
+    display: none;
+  }
+
+  .services-grid,
+  .wedding-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
 }
 
 
 /* ========================================
-   RESPONSIVE:
-   TABLET
+   RESPONSIVE — 950PX
 ======================================== */
 
 @media (max-width: 950px) {
+
+  body {
+    padding-bottom: 58px;
+  }
+
+  .header-inner {
+    min-height: 78px;
+  }
 
   .menu-toggle {
     display: block;
@@ -1853,533 +1520,260 @@ textarea {
   .main-nav {
     display: none;
     position: absolute;
-    top: 86px;
+    top: 78px;
     left: 0;
     right: 0;
-    background: #0c0c0c;
+    padding: 25px 4%;
     flex-direction: column;
     align-items: stretch;
-    padding: 20px;
     gap: 0;
+    background: var(--cream);
+    border-top: 1px solid var(--stone);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
   }
 
   .main-nav.open {
     display: flex;
   }
 
-  .main-nav a {
-    padding: 15px 8px;
-    border-bottom: 1px solid #292929;
-    font-size: 14px;
+  .main-nav > a {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--stone);
+    font-size: 0.78rem;
   }
 
-  .nav-button {
-    margin-top: 12px;
+  .main-nav > a::after {
+    display: none;
+  }
+
+  .main-nav .nav-button {
+    margin-top: 15px;
+    padding: 15px;
     text-align: center;
-    border-bottom: 0 !important;
   }
 
-  .service-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero {
+    min-height: 75vh;
   }
 
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .story-image img {
-    height: 420px;
-  }
-
-  .intro-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .intro-copy {
-    padding-top: 0;
-  }
-
-  .service-feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-feature-copy {
-    padding: 70px 0;
-  }
-
-  .service-feature-image img {
-    min-height: 450px;
-    height: 450px;
-  }
-
-  .collection-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .wedding-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .wedding-editorial-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .wedding-editorial-image img {
-    min-height: 500px;
-    height: 500px;
-  }
-
-  .wedding-editorial-copy {
-    padding: 70px 0;
-  }
-
-  .wedding-enquiry-grid {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 50px;
-  }
-
-  .occasion-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-editorial-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-editorial-image img {
-    min-height: 500px;
-    height: 500px;
-  }
-
-  .about-editorial-copy {
-    padding: 70px 0;
-  }
-
-  .heritage-grid {
+  .intro-grid,
+  .voucher-layout,
+  .checkout-layout,
+  .enquiry-layout,
+  .contact-layout {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
-  .about-values-grid {
+  .story-section,
+  .feature-section,
+  .wedding-editorial,
+  .heritage-section {
+    grid-template-columns: 1fr;
+  }
+
+  .story-image,
+  .feature-image,
+  .wedding-editorial-image,
+  .heritage-image {
+    min-height: 500px;
+  }
+
+  .story-content-inner,
+  .feature-content-inner,
+  .wedding-editorial-inner,
+  .heritage-inner {
+    padding: 70px 6%;
+  }
+
+  .collection-grid,
+  .occasions-grid,
+  .contact-help-grid {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 45px;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 55px;
-  }
-
-  .location-feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .location-block {
-    padding: 70px 0;
-  }
-
-  .location-visual {
-    min-height: 480px;
-  }
-
-  .voucher-value-grid {
+  .steps-grid,
+  .values-grid,
+  .voucher-steps-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .voucher-editorial-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .step,
+  .value-card {
+    border-bottom: 1px solid var(--stone);
   }
 
-  .voucher-checkout-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
+  .visit-strip-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
 
+  .checkout-summary {
+    position: static;
+  }
+
+  .mobile-actions {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 58px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--black);
+    color: var(--white);
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.15);
+  }
+
+  .mobile-actions a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .mobile-actions a:last-child {
+    border-right: 0;
+  }
+
 }
 
 
 /* ========================================
-   RESPONSIVE:
-   MOBILE
+   RESPONSIVE — 650PX
 ======================================== */
 
 @media (max-width: 650px) {
 
-  body {
-    padding-bottom: 64px;
-  }
-
-  .header-inner {
-    min-height: 72px;
+  .container {
+    width: min(90%, var(--max-width));
   }
 
   .brand-mark {
-    width: 46px;
-    height: 46px;
-    font-size: 22px;
+    width: 42px;
+    height: 42px;
   }
 
   .brand-text strong {
-    font-size: 14px;
-    letter-spacing: 2px;
-  }
-
-  .brand-text small {
-    font-size: 7px;
-    letter-spacing: 2px;
-  }
-
-  .main-nav {
-    top: 72px;
-  }
-
-
-  /* HOME */
-
-  .hero {
-    min-height: 650px;
-    align-items: flex-end;
-    background:
-      linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.45) 55%,
-        rgba(0, 0, 0, 0.15) 100%
-      ),
-      url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80")
-        center top / cover no-repeat;
+    font-size: 0.8rem;
   }
 
   .hero-content {
-    padding: 80px 0 55px;
+    padding: 90px 0 70px;
   }
 
-  .hero h1 {
-    font-size: 52px;
+  .hero h1,
+  .page-hero h1,
+  .voucher-hero h1 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
   }
 
-  .hero-copy {
-    font-size: 18px;
+  .page-hero {
+    min-height: 65vh;
   }
 
-  .button-row {
+  .page-hero-content {
+    padding: 90px 0 60px;
+  }
+
+  .intro-section,
+  .services-section,
+  .collection-section,
+  .wedding-services,
+  .steps-section,
+  .enquiry-section,
+  .occasions-section,
+  .values-section,
+  .contact-section,
+  .contact-help,
+  .voucher-section,
+  .voucher-steps,
+  .checkout-section {
+    padding: 75px 0;
+  }
+
+  .section-heading {
     flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
   }
 
-  .button-row .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .services {
-    padding: 16px 0 45px;
-  }
-
-  .service-grid {
+  .services-grid,
+  .collection-grid,
+  .wedding-grid,
+  .occasions-grid,
+  .contact-help-grid {
     grid-template-columns: 1fr;
   }
 
-  .service-card img {
-    height: 300px;
+  .service-card,
+  .collection-card,
+  .wedding-card,
+  .occasion-card {
+    min-height: 240px;
   }
 
-  .brand-list {
-    justify-content: center;
-    gap: 22px;
-    text-align: center;
+  .wedding-card span,
+  .occasion-card span {
+    margin-bottom: 50px;
   }
 
-  .brands-large {
-    padding: 55px 0;
-  }
-
-  .story {
-    padding: 55px 0;
-  }
-
-  .story-image img {
-    height: 360px;
-  }
-
-  .intro-section {
-    padding: 55px 0;
-  }
-
-
-  /* MENSWEAR */
-
-  .menswear-hero {
-    min-height: 600px;
-    align-items: flex-end;
-    background:
-      linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.4) 55%,
-        rgba(0, 0, 0, 0.1) 100%
-      ),
-      url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80")
-        center top / cover no-repeat;
-  }
-
-  .menswear-hero-content {
-    padding: 75px 0 50px;
-  }
-
-  .menswear-hero h1 {
-    font-size: 51px;
-  }
-
-  .menswear-hero-content > p:not(.eyebrow) {
-    font-size: 18px;
-  }
-
-  .collection-section {
-    padding-bottom: 55px;
-  }
-
-  .collection-grid {
+  .steps-grid,
+  .values-grid,
+  .voucher-steps-grid {
     grid-template-columns: 1fr;
   }
 
-  .collection-card {
-    height: 440px;
+  .step,
+  .step:not(:first-child),
+  .value-card,
+  .value-card:not(:first-child) {
+    padding: 30px 0;
+    border-right: 0;
   }
 
-  .service-feature-copy {
-    padding: 55px 0;
+  .story-image,
+  .feature-image,
+  .wedding-editorial-image,
+  .heritage-image {
+    min-height: 400px;
   }
 
-  .service-feature-image img {
-    min-height: 360px;
-    height: 360px;
+  .story-content-inner,
+  .feature-content-inner,
+  .wedding-editorial-inner,
+  .heritage-inner {
+    padding: 60px 5%;
   }
 
-
-  /* WEDDINGS */
-
-  .wedding-hero {
-    min-height: 650px;
-    align-items: flex-end;
-    background:
-      linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.94) 0%,
-        rgba(0, 0, 0, 0.42) 55%,
-        rgba(0, 0, 0, 0.08) 100%
-      ),
-      url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80")
-        center / cover no-repeat;
-  }
-
-  .wedding-hero-content {
-    padding: 80px 0 50px;
-  }
-
-  .wedding-hero h1 {
-    font-size: 50px;
-  }
-
-  .wedding-hero-content > p:not(.eyebrow) {
-    font-size: 18px;
-  }
-
-  .wedding-feature-grid {
-    padding-bottom: 55px;
-  }
-
-  .wedding-cards {
+  .enquiry-form,
+  .voucher-checkout-form {
     grid-template-columns: 1fr;
   }
 
-  .wedding-card {
-    min-height: auto;
-  }
-
-  .wedding-editorial-image img {
-    min-height: 390px;
-    height: 390px;
-  }
-
-  .wedding-editorial-copy {
-    padding: 55px 0;
-  }
-
-  .wedding-steps {
-    padding: 55px 0;
-  }
-
-  .steps-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .wedding-enquiry {
-    padding: 55px 0;
-  }
-
-  .wedding-enquiry-grid {
-    gap: 35px;
-  }
-
-  .wedding-form {
-    padding: 25px;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .full-width {
+  .form-group.full {
     grid-column: auto;
   }
 
-
-  /* OCCASIONS */
-
-  .occasion-hero {
-    min-height: 620px;
-    align-items: flex-end;
-    background:
-      linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.94) 0%,
-        rgba(0, 0, 0, 0.35) 48%,
-        rgba(0, 0, 0, 0.08) 100%
-      ),
-      url("https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=900&q=80")
-        center top / cover no-repeat;
+  .location-visual {
+    min-height: 520px;
   }
 
-  .occasion-hero-content {
-    padding: 80px 0 50px;
+  .location-card {
+    left: 20px;
+    bottom: 20px;
+    width: calc(100% - 40px);
+    padding: 28px;
   }
-
-  .occasion-hero h1 {
-    font-size: 49px;
-  }
-
-  .occasion-hero-content > p:not(.eyebrow) {
-    font-size: 18px;
-  }
-
-  .occasion-section {
-    padding-bottom: 55px;
-  }
-
-  .occasion-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .occasion-card img {
-    height: 360px;
-  }
-
-
-  /* ABOUT */
-
-  .story-hero {
-    min-height: 620px;
-    align-items: flex-end;
-    background:
-      linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.4) 52%,
-        rgba(0, 0, 0, 0.12) 100%
-      ),
-      url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80")
-        center / cover no-repeat;
-  }
-
-  .story-hero-content {
-    padding: 80px 0 50px;
-  }
-
-  .story-hero h1 {
-    font-size: 49px;
-  }
-
-  .story-hero-content > p:not(.eyebrow) {
-    font-size: 18px;
-  }
-
-  .about-editorial-image img {
-    min-height: 380px;
-    height: 380px;
-  }
-
-  .about-editorial-copy {
-    padding: 55px 0;
-  }
-
-  .heritage-section {
-    padding: 65px 0;
-  }
-
-  .heritage-year {
-    font-size: 105px;
-    letter-spacing: -5px;
-  }
-
-  .about-values {
-    padding: 55px 0;
-  }
-
-  .about-values-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* CONTACT */
-
-  .contact-hero {
-    min-height: 620px;
-    align-items: flex-end;
-    background:
-      linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.42) 52%,
-        rgba(0, 0, 0, 0.1) 100%
-      ),
-      url("https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=900&q=80")
-        center / cover no-repeat;
-  }
-
-  .contact-hero-content {
-    padding: 80px 0 50px;
-  }
-
-  .contact-hero h1 {
-    font-size: 49px;
-  }
-
-  .contact-hero-content > p:not(.eyebrow) {
-    font-size: 18px;
-  }
-
-  .contact-section {
-    padding: 60px 0;
-  }
-
-  .contact-detail {
-    grid-template-columns: 38px 1fr;
-  }
-
-
-  /* OPENING HOURS MOBILE */
 
   .opening-hours {
     max-width: 100%;
@@ -2393,181 +1787,26 @@ textarea {
     white-space: nowrap;
   }
 
-
-  /* LOCATION */
-
-  .location-block {
-    padding: 55px 0;
-  }
-
-  .location-visual {
-    min-height: 390px;
-  }
-
-  .location-marker {
-    padding: 35px 25px;
-    width: 86%;
-  }
-
-  .contact-help {
-    padding: 55px 0;
-  }
-
-  .contact-help-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-help-card {
-    min-height: auto;
-  }
-
-
-  /* VOUCHERS */
-
-  .voucher-hero {
-    min-height: 620px;
-    align-items: flex-end;
-    background:
-      linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.42) 52%,
-        rgba(0, 0, 0, 0.1) 100%
-      ),
-      url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80")
-        center / cover no-repeat;
-  }
-
-  .voucher-hero-content {
-    padding: 80px 0 50px;
-  }
-
-  .voucher-hero h1 {
-    font-size: 49px;
-  }
-
-  .voucher-hero-content > p:not(.eyebrow) {
-    font-size: 18px;
-  }
-
   .voucher-values {
-    padding: 55px 0;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .voucher-value-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .voucher-value-card {
-    min-height: 210px;
-  }
-
-  .voucher-editorial-copy {
-    padding: 55px 0;
-  }
-
-  .voucher-visual {
-    padding: 20px 0 60px;
+  .voucher-preview {
+    padding: 25px;
   }
 
   .voucher-preview-card {
-    padding: 25px;
-    min-height: 320px;
-  }
-
-  .voucher-preview-middle strong {
-    font-size: 60px;
-  }
-
-  .voucher-preview-bottom {
-    flex-direction: column;
-  }
-
-  .voucher-checkout-section {
-    padding: 60px 0;
-  }
-
-  .voucher-details-box {
-    padding: 25px;
-  }
-
-
-  /* THANK YOU */
-
-  .thank-you-section {
-    min-height: 650px;
-    padding: 80px 0 60px;
-  }
-
-  .thank-you-mark {
-    width: 60px;
-    height: 60px;
-    font-size: 25px;
-    margin-bottom: 28px;
-  }
-
-  .thank-you-content h1 {
-    font-size: 60px;
-  }
-
-  .thank-you-lead {
-    font-size: 20px;
-  }
-
-  .thank-you-copy {
-    font-size: 16px;
-  }
-
-  .thank-you-buttons {
-    flex-direction: column;
-  }
-
-  .thank-you-buttons .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-
-  /* VISIT / FOOTER */
-
-  .visit-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    min-height: 300px;
+    padding: 30px;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-
-  /* MOBILE ACTION BAR */
-
-  .mobile-actions {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 64px;
-    background: white;
-    z-index: 2000;
-    border-top: 1px solid #ddd;
-  }
-
-  .mobile-actions a {
-    display: grid;
-    place-items: center;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--black);
-    border-right: 1px solid #eee;
-  }
-
-  .mobile-actions a:last-child {
-    border-right: 0;
+  .site-footer {
+    padding-top: 60px;
   }
 
 }
