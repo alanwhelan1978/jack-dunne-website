@@ -2280,3 +2280,440 @@ textarea {
   }
 
 }
+
+/* ========================================
+   GIFT VOUCHERS
+======================================== */
+
+.voucher-hero {
+  min-height: 690px;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.94) 0%,
+      rgba(0,0,0,.72) 45%,
+      rgba(0,0,0,.18) 78%
+    ),
+    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1800&q=85")
+    center / cover no-repeat;
+}
+
+
+.voucher-hero-content {
+  max-width: 720px;
+  padding: 100px 0;
+}
+
+
+.voucher-hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(55px, 7vw, 92px);
+  line-height: .98;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+
+.voucher-hero-content > p:not(.eyebrow) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  max-width: 590px;
+  margin-bottom: 35px;
+}
+
+
+.voucher-values {
+  background: #f8f5ef;
+  padding: 90px 0;
+}
+
+
+.voucher-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+
+.voucher-value-card {
+  appearance: none;
+  border: 1px solid #d7cec4;
+  background: white;
+  padding: 50px 30px;
+  min-height: 260px;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    color .25s ease;
+}
+
+
+.voucher-value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.08);
+  background: #111;
+  color: white;
+}
+
+
+.voucher-value-card span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  margin-bottom: 35px;
+}
+
+
+.voucher-value-card strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 65px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+
+.voucher-value-card small {
+  display: block;
+  margin-top: 35px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+
+.voucher-editorial {
+  background: #111;
+  color: white;
+}
+
+
+.voucher-editorial-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+  min-height: 650px;
+}
+
+
+.voucher-editorial-copy {
+  padding: 90px 0;
+}
+
+
+.voucher-editorial-copy h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 5vw, 65px);
+  line-height: 1.03;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+
+.voucher-editorial-copy > p:not(.eyebrow) {
+  color: #d7d7d7;
+  font-size: 17px;
+  max-width: 500px;
+  margin-bottom: 18px;
+}
+
+
+.voucher-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 0;
+}
+
+
+.voucher-preview-card {
+  width: 100%;
+  max-width: 610px;
+  min-height: 360px;
+  border: 1px solid #d8c7a9;
+  background:
+    linear-gradient(
+      135deg,
+      #090909,
+      #1b1b1b
+    );
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 35px 80px rgba(0,0,0,.35);
+}
+
+
+.voucher-preview-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.voucher-preview-logo {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border: 1px solid white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+
+.voucher-preview-top strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+
+.voucher-preview-top small {
+  letter-spacing: 4px;
+  color: #aaa;
+}
+
+
+.voucher-preview-middle span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+
+
+.voucher-preview-middle strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+
+.voucher-preview-middle small {
+  letter-spacing: 3px;
+}
+
+
+.voucher-preview-bottom {
+  border-top: 1px solid #555;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+
+.voucher-preview-bottom span {
+  letter-spacing: 4px;
+}
+
+
+.voucher-preview-bottom small {
+  color: #aaa;
+}
+
+
+/* CHECKOUT */
+
+.voucher-checkout-section {
+  padding: 100px 0;
+  background: var(--cream);
+  min-height: 750px;
+}
+
+
+.voucher-checkout-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 90px;
+  align-items: start;
+}
+
+
+.voucher-order-summary h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+
+.voucher-order-summary > p:not(.eyebrow) {
+  font-size: 17px;
+  max-width: 480px;
+}
+
+
+.checkout-voucher-card {
+  background: #111;
+  color: white;
+  border: 1px solid #cdbb9e;
+  padding: 40px;
+  margin: 40px 0 15px;
+}
+
+
+.checkout-voucher-card span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+
+.checkout-voucher-card strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 75px;
+  font-weight: 400;
+}
+
+
+.checkout-voucher-card small {
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+
+.voucher-details-box {
+  background: white;
+  padding: 45px;
+}
+
+
+.voucher-payment-button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+
+.voucher-payment-note {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* SUCCESS */
+
+.voucher-success-section {
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 100px 0;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.89),
+      rgba(0,0,0,.89)
+    ),
+    url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1800&q=85")
+    center / cover no-repeat;
+}
+
+
+.voucher-success-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+
+.voucher-success-content h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(55px, 7vw, 90px);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+
+.voucher-success-lead {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+
+.voucher-success-buttons {
+  justify-content: center;
+  margin-top: 40px;
+}
+
+
+@media (max-width: 950px) {
+
+  .voucher-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .voucher-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .voucher-checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .voucher-hero {
+    min-height: 620px;
+    align-items: flex-end;
+  }
+
+  .voucher-hero-content {
+    padding: 80px 0 50px;
+  }
+
+  .voucher-hero h1 {
+    font-size: 49px;
+  }
+
+  .voucher-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .voucher-value-card {
+    min-height: 210px;
+  }
+
+  .voucher-preview-card {
+    padding: 25px;
+    min-height: 320px;
+  }
+
+  .voucher-preview-middle strong {
+    font-size: 60px;
+  }
+
+  .voucher-checkout-section {
+    padding: 60px 0;
+  }
+
+  .voucher-details-box {
+    padding: 25px;
+  }
+
+}
