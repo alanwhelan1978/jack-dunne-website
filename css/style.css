@@ -2152,3 +2152,131 @@ textarea {
   }
 
 }
+
+/* --------------------------------
+   THANK YOU PAGE
+-------------------------------- */
+
+.thank-you-section {
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.87),
+      rgba(0, 0, 0, 0.87)
+    ),
+    url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1800&q=85")
+    center / cover no-repeat;
+  color: white;
+  padding: 100px 0;
+}
+
+
+.thank-you-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+
+.thank-you-mark {
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 35px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+
+
+.thank-you-content h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(65px, 9vw, 105px);
+  font-weight: 400;
+  line-height: 0.95;
+  margin-bottom: 30px;
+}
+
+
+.thank-you-lead {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+
+.thank-you-copy {
+  color: #d5d5d5;
+  font-size: 17px;
+  max-width: 570px;
+  margin: 0 auto 35px;
+}
+
+
+.thank-you-buttons {
+  justify-content: center;
+  margin-top: 35px;
+}
+
+
+.thank-you-home {
+  display: inline-block;
+  margin-top: 35px;
+  color: #d5d5d5;
+  font-size: 13px;
+  border-bottom: 1px solid #777;
+  padding-bottom: 3px;
+}
+
+
+.thank-you-home:hover {
+  color: white;
+}
+
+
+@media (max-width: 650px) {
+
+  .thank-you-section {
+    min-height: 650px;
+    padding: 80px 0 60px;
+  }
+
+
+  .thank-you-mark {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    margin-bottom: 28px;
+  }
+
+
+  .thank-you-content h1 {
+    font-size: 60px;
+  }
+
+
+  .thank-you-lead {
+    font-size: 20px;
+  }
+
+
+  .thank-you-copy {
+    font-size: 16px;
+  }
+
+
+  .thank-you-buttons {
+    flex-direction: column;
+  }
+
+
+  .thank-you-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+}
