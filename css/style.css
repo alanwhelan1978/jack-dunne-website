@@ -1175,3 +1175,144 @@ a {
   }
 
 }
+
+
+/* ========================================
+   OCCASIONS PAGE
+======================================== */
+
+.occasion-hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.65) 42%, rgba(0,0,0,.12) 76%),
+    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1800&q=85")
+    center 30% / cover no-repeat;
+}
+
+.occasion-hero-content {
+  max-width: 700px;
+  padding: 100px 0;
+}
+
+.occasion-hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(55px, 7vw, 90px);
+  line-height: .98;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.occasion-hero-content > p:not(.eyebrow) {
+  font-family: Georgia, serif;
+  font-size: 21px;
+  max-width: 590px;
+  margin-bottom: 35px;
+}
+
+
+/* OCCASION CARDS */
+
+.occasion-section {
+  background: var(--cream);
+  padding: 0 0 90px;
+}
+
+.occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.occasion-card {
+  background: white;
+  overflow: hidden;
+}
+
+.occasion-card img {
+  height: 390px;
+  object-fit: cover;
+  transition: transform .45s ease;
+}
+
+.occasion-card:hover img {
+  transform: scale(1.03);
+}
+
+.occasion-card-content {
+  padding: 28px;
+}
+
+.occasion-number {
+  color: #9b8c7c;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+
+.occasion-card h2 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 31px;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.occasion-card-content > p:last-child {
+  color: var(--muted);
+}
+
+
+/* TABLET */
+
+@media (max-width: 950px) {
+
+  .occasion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .occasion-hero {
+    min-height: 620px;
+    align-items: flex-end;
+
+    background:
+      linear-gradient(0deg, rgba(0,0,0,.94), rgba(0,0,0,.14)),
+      url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80")
+      center / cover no-repeat;
+  }
+
+  .occasion-hero-content {
+    padding: 80px 0 50px;
+  }
+
+  .occasion-hero h1 {
+    font-size: 49px;
+  }
+
+  .occasion-hero-content > p:not(.eyebrow) {
+    font-size: 18px;
+  }
+
+  .occasion-section {
+    padding-bottom: 55px;
+  }
+
+  .occasion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .occasion-card img {
+    height: 360px;
+  }
+
+}
