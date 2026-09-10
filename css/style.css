@@ -2571,3 +2571,143 @@ textarea {
   }
 
 }
+
+/* ========================================
+   PRIVACY / LEGAL PAGES
+======================================== */
+
+.legal-hero {
+  padding: 120px 0 90px;
+  background: #111111;
+  color: #ffffff;
+}
+
+.legal-hero h1 {
+  margin-bottom: 20px;
+}
+
+.legal-hero p {
+  max-width: 620px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+}
+
+.legal-section {
+  padding: 110px 0;
+  background: #f4efe8;
+}
+
+.legal-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 780px);
+  justify-content: space-between;
+  gap: 90px;
+  align-items: start;
+}
+
+.legal-sidebar {
+  position: sticky;
+  top: 120px;
+  padding-top: 5px;
+}
+
+.legal-sidebar p {
+  color: #74706b;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.legal-sidebar a {
+  color: #242424;
+}
+
+.legal-sidebar a:hover {
+  text-decoration: underline;
+}
+
+.legal-content {
+  max-width: 780px;
+}
+
+.legal-intro {
+  margin-bottom: 60px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.4rem, 2.3vw, 2rem);
+  line-height: 1.45;
+}
+
+.legal-block {
+  padding: 42px 0;
+  border-top: 1px solid #d7cec4;
+}
+
+.legal-block:last-child {
+  border-bottom: 1px solid #d7cec4;
+}
+
+.legal-block h2 {
+  margin-bottom: 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+}
+
+.legal-block p {
+  margin-bottom: 18px;
+  color: #4d4945;
+}
+
+.legal-block p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-block ul {
+  margin: 0 0 22px 22px;
+  padding: 0;
+}
+
+.legal-block li {
+  margin-bottom: 9px;
+  padding-left: 5px;
+  color: #4d4945;
+}
+
+.legal-block a {
+  border-bottom: 1px solid #242424;
+}
+
+@media (max-width: 950px) {
+
+  .legal-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .legal-sidebar {
+    position: static;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #d7cec4;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .legal-hero {
+    padding: 85px 0 65px;
+  }
+
+  .legal-section {
+    padding: 70px 0;
+  }
+
+  .legal-intro {
+    margin-bottom: 35px;
+  }
+
+  .legal-block {
+    padding: 32px 0;
+  }
+
+}
