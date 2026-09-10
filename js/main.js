@@ -116,3 +116,89 @@ if (weddingForm) {
   });
 
 }
+
+/* --------------------------------
+   GIFT VOUCHERS
+-------------------------------- */
+
+const voucherButtons =
+  document.querySelectorAll("[data-voucher-amount]");
+
+
+voucherButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    const amount =
+      button.dataset.voucherAmount;
+
+    localStorage.setItem(
+      "jackDunneVoucherAmount",
+      amount
+    );
+
+    window.location.href =
+      "voucher-checkout.html";
+
+  });
+
+});
+
+
+
+const voucherAmountInput =
+  document.getElementById("voucher-amount");
+
+
+const voucherDisplayAmount =
+  document.getElementById("voucher-display-amount");
+
+
+if (
+  voucherAmountInput &&
+  voucherDisplayAmount
+) {
+
+  const savedAmount =
+    localStorage.getItem(
+      "jackDunneVoucherAmount"
+    );
+
+
+  if (
+    savedAmount &&
+    savedAmount !== "custom"
+  ) {
+
+    voucherAmountInput.value =
+      savedAmount;
+
+  }
+
+  else {
+
+    voucherAmountInput.value = 50;
+
+  }
+
+
+  function updateVoucherAmount() {
+
+    const value =
+      voucherAmountInput.value || 0;
+
+    voucherDisplayAmount.textContent =
+      `€${value}`;
+
+  }
+
+
+  voucherAmountInput.addEventListener(
+    "input",
+    updateVoucherAmount
+  );
+
+
+  updateVoucherAmount();
+
+}
