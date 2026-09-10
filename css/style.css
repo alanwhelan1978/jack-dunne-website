@@ -200,12 +200,13 @@ p {
 .site-header {
   position: relative;
   z-index: 1000;
-  background: var(--cream);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--black);
+  color: var(--white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header-inner {
-  min-height: 90px;
+  min-height: 84px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -223,13 +224,14 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
-  background: var(--black);
-  color: var(--cream);
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: transparent;
+  color: var(--white);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
+  font-size: 1.35rem;
+  font-weight: 700;
 }
 
 .brand-text {
@@ -240,15 +242,15 @@ p {
 
 .brand-text strong {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
 }
 
 .brand-text small {
   margin-top: 5px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.58rem;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.2em;
 }
 
 .main-nav {
@@ -261,7 +263,6 @@ p {
   position: relative;
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
   white-space: nowrap;
 }
 
@@ -272,7 +273,7 @@ p {
   bottom: -7px;
   width: 0;
   height: 1px;
-  background: var(--black);
+  background: var(--white);
   transition: width 0.25s ease;
 }
 
@@ -282,15 +283,15 @@ p {
 
 .nav-button {
   padding: 12px 17px;
-  background: var(--black);
-  color: var(--white);
+  background: var(--cream);
+  color: var(--black);
 }
 
 .menu-toggle {
   display: none;
   border: 0;
   background: transparent;
-  color: var(--black);
+  color: var(--white);
   font-size: 1.7rem;
 }
 
@@ -300,7 +301,7 @@ p {
 ======================================== */
 
 .hero {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 84px);
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -589,7 +590,7 @@ p {
 
 
 /* ========================================
-   GENERIC FEATURE SECTION
+   GENERIC FEATURE
 ======================================== */
 
 .feature-section {
@@ -871,7 +872,7 @@ p {
 
 
 /* ========================================
-   ABOUT / OUR STORY
+   ABOUT
 ======================================== */
 
 .story-hero {
@@ -960,7 +961,7 @@ p {
 
 
 /* ========================================
-   CONTACT
+   CONTACT HERO
 ======================================== */
 
 .contact-hero {
@@ -973,6 +974,11 @@ p {
     center / cover no-repeat;
 }
 
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
 .contact-section {
   padding: 110px 0;
 }
@@ -981,6 +987,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
+  align-items: stretch;
 }
 
 .contact-details h2 {
@@ -1028,7 +1035,7 @@ p {
   justify-content: space-between;
   gap: 30px;
   padding: 10px 0;
-  border-bottom: 1px solid #d7cec4;
+  border-bottom: 1px solid var(--stone);
 }
 
 .opening-hours > div:last-child {
@@ -1052,53 +1059,78 @@ p {
 .location-visual {
   min-height: 620px;
   position: relative;
-
-  /*
-    Real Gorey street image.
-    File location:
-    images/jackdunnestreet.jpg
-  */
+  overflow: hidden;
 
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.05),
       rgba(0, 0, 0, 0.18)
     ),
     url("../images/jackdunnestreet.jpg")
-    center / cover no-repeat;
+    center 60% / cover no-repeat;
 }
 
 .location-card {
   position: absolute;
-  left: 35px;
-  bottom: 35px;
-  width: min(360px, calc(100% - 70px));
-  padding: 35px;
-  background: var(--black);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(420px, calc(100% - 70px));
+  padding: 48px 40px;
+
+  background: rgba(12, 12, 12, 0.92);
   color: var(--white);
+
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
 }
 
 .location-card .brand-mark {
-  margin-bottom: 25px;
-  background: var(--cream);
-  color: var(--black);
-}
+  width: 80px;
+  height: 80px;
 
-.location-card h3 {
-  margin-bottom: 14px;
+  margin: 0 auto 26px;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  background: transparent;
+  color: var(--white);
+
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 2rem;
 }
 
+.location-card h3 {
+  margin-bottom: 12px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
+
+  color: var(--white);
+}
+
 .location-card p {
-  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
 }
 
 .location-card a {
   display: inline-block;
-  margin-top: 10px;
+
+  margin-top: 18px;
   padding-bottom: 4px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+
+  color: var(--white);
+
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1363,7 +1395,7 @@ p {
 ======================================== */
 
 .thank-you-section {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 84px);
   display: flex;
   align-items: center;
   position: relative;
@@ -1527,9 +1559,9 @@ p {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--cream);
-    border-top: 1px solid var(--stone);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+    background: var(--black);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
   }
 
   .main-nav.open {
@@ -1538,7 +1570,7 @@ p {
 
   .main-nav > a {
     padding: 14px 0;
-    border-bottom: 1px solid var(--stone);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     font-size: 0.78rem;
   }
 
@@ -1659,8 +1691,8 @@ p {
   }
 
   .brand-mark {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
   }
 
   .brand-text strong {
@@ -1766,13 +1798,23 @@ p {
 
   .location-visual {
     min-height: 520px;
+    background-position: center 60%;
   }
 
   .location-card {
-    left: 20px;
-    bottom: 20px;
     width: calc(100% - 40px);
-    padding: 28px;
+    padding: 34px 25px;
+  }
+
+  .location-card .brand-mark {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 22px;
+    font-size: 1.7rem;
+  }
+
+  .location-card h3 {
+    font-size: 1.45rem;
   }
 
   .opening-hours {
