@@ -824,3 +824,354 @@ a {
     height: 360px;
   }
 }
+
+/* ========================================
+   WEDDING & FORMAL HIRE PAGE
+======================================== */
+
+.wedding-hero {
+  min-height: 690px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.93) 0%, rgba(0,0,0,.65) 42%, rgba(0,0,0,.08) 78%),
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=85")
+    center 38% / cover no-repeat;
+}
+
+.wedding-hero-content {
+  max-width: 720px;
+  padding: 105px 0;
+}
+
+.wedding-hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(56px, 7vw, 92px);
+  line-height: .98;
+  font-weight: 400;
+  margin-bottom: 26px;
+}
+
+.wedding-hero-content > p:not(.eyebrow) {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  max-width: 620px;
+  margin-bottom: 38px;
+}
+
+
+/* WEDDING CARDS */
+
+.wedding-feature-grid {
+  padding: 0 0 90px;
+  background: var(--cream);
+}
+
+.wedding-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.wedding-card {
+  background: white;
+  padding: 38px 30px;
+  min-height: 290px;
+}
+
+.wedding-number {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: #9b8c7c;
+  margin-bottom: 35px;
+}
+
+.wedding-card h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  line-height: 1.05;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.wedding-card p {
+  color: var(--muted);
+}
+
+
+/* EDITORIAL SECTION */
+
+.wedding-editorial {
+  background: var(--charcoal);
+  color: white;
+}
+
+.wedding-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+}
+
+.wedding-editorial-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 650px;
+  object-fit: cover;
+}
+
+.wedding-editorial-copy {
+  padding: 95px 0 95px 75px;
+  align-self: center;
+}
+
+.wedding-editorial-copy h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(45px, 5vw, 66px);
+  line-height: 1.03;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.wedding-editorial-copy > p:not(.eyebrow) {
+  color: #d7d7d7;
+  font-size: 17px;
+  max-width: 520px;
+  margin-bottom: 18px;
+}
+
+.wedding-editorial-copy .btn {
+  margin-top: 18px;
+}
+
+
+/* STEPS */
+
+.wedding-steps {
+  background: #f8f5ef;
+  padding: 90px 0;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.step-card {
+  border-top: 1px solid #aaa097;
+  padding-top: 25px;
+}
+
+.step-card span {
+  display: block;
+  font-family: Georgia, serif;
+  color: #8f8172;
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+.step-card h3 {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.step-card p {
+  color: var(--muted);
+}
+
+
+/* ENQUIRY */
+
+.wedding-enquiry {
+  padding: 95px 0;
+  background: var(--cream);
+}
+
+.wedding-enquiry-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.wedding-enquiry-copy h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(50px, 6vw, 75px);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 25px;
+}
+
+.wedding-enquiry-copy > p:not(.eyebrow) {
+  font-size: 17px;
+  max-width: 470px;
+  margin-bottom: 20px;
+}
+
+.enquiry-note {
+  color: #7a7068;
+  font-size: 13px !important;
+  border-left: 2px solid #b9ac9f;
+  padding-left: 15px;
+  margin-top: 30px;
+}
+
+.wedding-form {
+  background: white;
+  padding: 45px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 7px;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: #f8f6f1;
+  border: 1px solid #ded8d0;
+  padding: 15px;
+  font: inherit;
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 1px solid #777;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-button {
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+
+  .wedding-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wedding-editorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-editorial-image img {
+    min-height: 500px;
+    height: 500px;
+  }
+
+  .wedding-editorial-copy {
+    padding: 70px 0;
+  }
+
+  .wedding-enquiry-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .wedding-hero {
+    min-height: 650px;
+    align-items: flex-end;
+    background:
+      linear-gradient(0deg, rgba(0,0,0,.94), rgba(0,0,0,.12)),
+      url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80")
+      center / cover no-repeat;
+  }
+
+  .wedding-hero-content {
+    padding: 80px 0 50px;
+  }
+
+  .wedding-hero h1 {
+    font-size: 50px;
+  }
+
+  .wedding-hero-content > p:not(.eyebrow) {
+    font-size: 18px;
+  }
+
+  .wedding-feature-grid {
+    padding-bottom: 55px;
+  }
+
+  .wedding-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-card {
+    min-height: auto;
+  }
+
+  .wedding-editorial-image img {
+    min-height: 390px;
+    height: 390px;
+  }
+
+  .wedding-editorial-copy {
+    padding: 55px 0;
+  }
+
+  .wedding-steps {
+    padding: 55px 0;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-enquiry {
+    padding: 55px 0;
+  }
+
+  .wedding-form {
+    padding: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+}
