@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /thank-you.html
+Disallow: /voucher-checkout.html
+Disallow: /voucher-success.html
+
+Sitemap: https://www.jackdunneandson.com/sitemap.xml
