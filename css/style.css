@@ -2711,3 +2711,17 @@ textarea {
   }
 
 }
+
+.form-privacy {
+  grid-column: 1 / -1;
+  max-width: 620px;
+  margin-top: 5px;
+  color: #74706b;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.form-privacy a {
+  color: #242424;
+  text-decoration: underline;
+}
