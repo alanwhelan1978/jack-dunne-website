@@ -280,3 +280,40 @@ window.addEventListener("resize", () => {
   }
 
 });
+
+/* ========================================
+   ACTIVE NAVIGATION
+======================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPath = window.location.pathname;
+  let currentPage = currentPath.split("/").pop();
+
+  // Treat the root URL and index.html as Home
+  if (currentPage === "" || currentPage === "index.html") {
+    currentPage = "index.html";
+  }
+
+  const navLinks = document.querySelectorAll(".main-nav a");
+
+  navLinks.forEach(function (link) {
+    const href = link.getAttribute("href");
+
+    if (!href) return;
+
+    // Home link
+    if (
+      (currentPage === "index.html" && (href === "./" || href === "/" || href === "index.html"))
+    ) {
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+      return;
+    }
+
+    // All other pages
+    if (href === currentPage) {
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+});
