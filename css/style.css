@@ -2725,3 +2725,19 @@ textarea {
   color: #242424;
   text-decoration: underline;
 }
+
+/* ========================================
+   ACTIVE NAVIGATION
+======================================== */
+
+.main-nav a.active:not(.nav-button) {
+  opacity: 1;
+}
+
+.main-nav a.active:not(.nav-button)::after {
+  width: 100%;
+}
+
+.main-nav a.active:not(.nav-button) {
+  font-weight: 700;
+}
