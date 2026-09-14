@@ -2741,3 +2741,17 @@ textarea {
 .main-nav a.active:not(.nav-button) {
   font-weight: 700;
 }
+
+/* WHELHAUS WEBSITE CREDIT */
+
+.whelhaus-credit {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.whelhaus-credit:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
